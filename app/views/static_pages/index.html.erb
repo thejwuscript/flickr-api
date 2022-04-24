@@ -1,0 +1,15 @@
+<h1>Photos From Flickr</h1>
+
+<%= form_with url: '/', method: :get do |form| %>
+  <div>
+    <%= form.label :user_id, "Flickr User ID:" %>
+    <%= form.text_field :user_id %>
+  </div>
+  <div>
+    <%= form.submit "Get Photos" %>
+  </div>
+<% end %>
+
+<% @list.each do |photo| %>
+  <img src="https://live.staticflickr.com/<%= photo.server %>/<%= photo.id %>_<%= photo.secret %>.jpg" alt="">
+<% end %>
